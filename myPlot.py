@@ -17,23 +17,22 @@ class MyPlot:
 
     def plotStraightLine(self, x, y):
         fp1 = sp.polyfit(x, y, 1)
-        f1 = sp.poly1d(fp1)
+        self.f1 = sp.poly1d(fp1)
         fx = sp.linspace(0, x[-1], 1000)  #generates X-values for plotting
-        plt.plot(fx, f1(fx), 'r-',linewidth=4)
-        plt.legend(["d=%i" % f1.order], loc="upper left")
+        plt.plot(fx, self.f1(fx), 'r-',linewidth=4)
         print("Straight Line:") 
         print("Model parameters: %s" % fp1)
-        print("Error: %s" % self.error(f1, x, y))
+        print("Error: %s" % self.error(self.f1, x, y))
     
     def plotTwoDegree(self, x, y):
         fp2 = sp.polyfit(x, y, 2)
-        f1 = sp.poly1d(fp2)
+        self.f2 = sp.poly1d(fp2)
         fx = sp.linspace(0, x[-1], 1000)  #generates X-values for plotting
-        plt.plot(fx, f1(fx), 'r-',linewidth=4)
-        plt.legend(["d=%i" % f1.order], loc="upper left")
+        plt.plot(fx, self.f2(fx), 'g-',linewidth=4)
         print("Two Degrees:") 
         print("Model parameters: %s" % fp2)
-        print("Error: %s" % self.error(f1, x, y))
+        print("Error: %s" % self.error(self.f2, x, y))
 
     def showPlot(self):
+        plt.legend(["d=%i" % self.f2.order], loc="upper left")
         plt.show()

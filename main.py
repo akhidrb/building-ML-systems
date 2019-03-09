@@ -14,9 +14,12 @@ class Main:
     def run(self):
         data = self.dataOrganizer.getData();    
         x, y = self.dataOrganizer.structureData(data)
+        xa, ya = self.dataOrganizer.dataAfterInflection(x, y)
+        
+        self.dataOrganizer.predict(xa, ya)
+
         self.plot.plotData(x, y)
-        self.plot.plotStraightLine(x, y)
-        self.plot.plotTwoDegree(x, y)
+        self.plot.plotTwoDegree(xa, ya)
         self.plot.showPlot()
 
 
