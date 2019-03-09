@@ -8,15 +8,15 @@ from dataOrganizer import DataManager
 
 class Main:
     def __init__(self):
-        self.dataOrganizer = DataManager()
+        self.dataManager = DataManager()
         self.plot = MyPlot()
 
     def run(self):
-        data = self.dataOrganizer.getData();    
-        x, y = self.dataOrganizer.structureData(data)
-        xa, ya = self.dataOrganizer.dataAfterInflection(x, y)
+        data = self.dataManager.getData();    
+        x, y = self.dataManager.structureData(data)
+        xa, ya = self.dataManager.dataAfterInflection(x, y)
         
-        self.dataOrganizer.predict(xa, ya)
+        self.dataManager.predict(xa, ya)
 
         self.plot.plotData(x, y)
         self.plot.plotTwoDegree(xa, ya)
