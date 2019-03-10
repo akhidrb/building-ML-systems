@@ -1,18 +1,19 @@
 
 import scipy as sp
 from scipy.optimize import fsolve
+from sklearn.datasets import load_iris
 
 class DataManager:
 
     def getData(self):
-        return sp.genfromtxt("web-traffic.tsv", delimiter="\t")
+        return load_iris()
 
     def structureData(self, data):
-        x = data[:,0]
-        y = data[:,1]
-        x = x[~sp.isnan(y)]
-        y = y[~sp.isnan(y)]
-        return x, y
+        features = data.data
+        feature_names = data.feature_names
+        target = data.target
+        target_names = data.target_names
+        return features, feature_names, target, target_names
 
     def dataAfterInflection(self, x, y):
         inflection = int(3.5*7*24)   # 3.5 is the number of weeks before inflection

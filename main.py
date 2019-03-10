@@ -12,14 +12,9 @@ class Main:
         self.plot = MyPlot()
 
     def run(self):
-        data = self.dataManager.getData();    
-        x, y = self.dataManager.structureData(data)
-        xa, ya = self.dataManager.dataAfterInflection(x, y)
-        
-        self.dataManager.predict(xa, ya)
-
-        self.plot.plotData(x, y)
-        self.plot.plotTwoDegree(xa, ya)
+        data = self.dataManager.getData();
+        features, feature_names, target, target_names = self.dataManager.structureData(data)
+        self.plot.plotIrisData(features, target)
         self.plot.showPlot()
 
 
