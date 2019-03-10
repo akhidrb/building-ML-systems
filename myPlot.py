@@ -3,9 +3,6 @@ import scipy as sp
 
 class MyPlot:
 
-    def error(slef, f, x, y):
-        return sp.sum((f(x)-y)**2)
-
     def setPlot(self, xLabel, yLabel):
         plt.title("Iris Data")
         plt.xlabel(xLabel)
